@@ -1,12 +1,12 @@
 package com.example.walkingtours;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -102,31 +102,39 @@ public class SplashActivity extends AppCompatActivity {
             if (permissions[0].equals(Manifest.permission.ACCESS_FINE_LOCATION) &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 requestBgPermission();
+            } else {
+                showPermissionDialog();
             }
         } else if (requestCode == LOC_COMBO_REQUEST) {
             int permCount = permissions.length;
             int permSum = 0;
-            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < permissions.length; i++) {
                 if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
                     permSum++;
-                } else {
-                    sb.append(permissions[i]).append(", ");
                 }
             }
             if (permSum == permCount) {
                 startMainActivity();
             } else {
-                Toast.makeText(this,
-                        "Required permissions not granted: " + sb.toString(),
-                        Toast.LENGTH_LONG).show();
+                showPermissionDialog();
             }
         } else if (requestCode == BGLOC_ONLY_PERM_REQUEST) {
             if (permissions[0].equals(Manifest.permission.ACCESS_BACKGROUND_LOCATION) &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 startMainActivity();
+            } else {
+                showPermissionDialog();
             }
         }
+    }
+
+    private void showPermissionDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Required permissions are not granted.")
+                .setTitle("Permissions")
+                .setPositiveButton("OK", (dialog, id) -> finish());
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     public void requestBgPermission() {
