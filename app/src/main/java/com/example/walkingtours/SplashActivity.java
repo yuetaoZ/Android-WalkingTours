@@ -42,7 +42,7 @@ public class SplashActivity extends AppCompatActivity {
             // This method will be executed once the timer is over
             // Start your app main activity
             Intent i =
-                    new Intent(SplashActivity.this, MainActivity.class);
+                    new Intent(SplashActivity.this, MapsActivity.class);
             startActivity(i);
             overridePendingTransition(R.anim.slide_in, R.anim.slide_out); // new act, old act
             // close this activity

@@ -2,4 +2,9 @@
     <string name="app_name">Walking Tours</string>
     <string name="splashactivitylogo">SplashActivityLogo</string>
     <string name="splashactivitylogo2">SplashActivityLogo2</string>
+    <string name="current_address">Current Address</string>
+    <string name="show_addresses">Show Addresses</string>
+    <string name="show_travel_path">Show Travel Path</string>
+    <string name="show_geofences">Show Geofences</string>
+    <string name="show_tour_path">Show Tour Path</string>
 </resources>
