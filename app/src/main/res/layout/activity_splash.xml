@@ -6,7 +6,7 @@
     android:background="@color/teal_200">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/locationImage"
         android:layout_width="360dp"
         android:layout_height="360dp"
         android:contentDescription="@string/splashactivitylogo"
@@ -21,7 +21,7 @@
         android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/locationImage"
         app:srcCompat="@drawable/walker_right"
         android:contentDescription="@string/splashactivitylogo2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,6 @@
 package com.example.walkingtours;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
@@ -64,35 +63,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private FenceMgr fenceMgr;
     private Geocoder geocoder;
     private TextView addressText;
-    private boolean travelPathClicked = true;
+    private boolean travelPathClicked;
+
+    {
+        travelPathClicked = true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_map);
 
         addressText = findViewById(R.id.currentAddress);
 
         checkLocationAccuracy();
 
         geocoder = new Geocoder(this);
-    }
-
-    private void hideSystemUI() {
-        // Enables regular immersive mode.
-        // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
-        // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_IMMERSIVE
-                        // Set the content to appear under the system bars so that the
-                        // content doesn't resize when the system bars hide and show.
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        // Hide the nav bar and status bar
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
     }
 
     public void initMap() {
@@ -131,7 +117,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, locationListener);
+        assert locationManager != null;
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 10, locationListener);
     }
 
     public void showFenceClicked(View v) {
@@ -157,11 +144,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void showTravelPathClicked(View v) {
         CheckBox cb = (CheckBox) v;
 
-        if (cb.isChecked()) {
-            travelPathClicked = true;
-        } else {
-            travelPathClicked = false;
-        }
+        travelPathClicked = cb.isChecked();
     }
 
     public void showAddressClicked(View v) {

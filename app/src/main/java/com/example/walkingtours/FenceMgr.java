@@ -39,8 +39,8 @@ class FenceMgr {
     private final List<PatternItem> pattern = Collections.singletonList(new Dot());
     private static final ArrayList<FenceData> fenceList = new ArrayList<>();
     private static final ArrayList<LatLng> latLonPath = new ArrayList<>();
-    private GoogleMap mMap;
-    private PolylineOptions polylineOptions = new PolylineOptions();
+    private final GoogleMap mMap;
+    private final PolylineOptions polylineOptions = new PolylineOptions();
     private Polyline llPathPolyline;
 
     FenceMgr(final MapsActivity mapsActivity, GoogleMap mMap) {
@@ -136,8 +136,7 @@ class FenceMgr {
     public void savePath(String[] arrPath) {
         latLonPath.clear();
 
-        for (int i = 0; i < arrPath.length; i++) {
-            String latLngStr = arrPath[i];
+        for (String latLngStr : arrPath) {
             String[] parts = latLngStr.split(",");
             String lng = parts[0];
             String lat = parts[1];

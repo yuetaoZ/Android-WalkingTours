@@ -7,4 +7,5 @@
     <string name="show_travel_path">Show Travel Path</string>
     <string name="show_geofences">Show Geofences</string>
     <string name="show_tour_path">Show Tour Path</string>
+    <string name="place_picture">Place picture</string>
 </resources>

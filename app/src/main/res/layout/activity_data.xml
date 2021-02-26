@@ -11,7 +11,7 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="5dp"
         android:textAllCaps="false"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -20,27 +20,39 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Place Name" />
 
+    <ImageView
+        android:id="@+id/locationImage"
+        android:layout_width="380dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="5dp"
+        android:contentDescription="@string/place_picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <TextView
         android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="5dp"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/locationImage"
         tools:text="Address" />
 
     <TextView
-        android:id="@+id/lat_lon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:id="@+id/description"
+        android:layout_width="380dp"
+        android:layout_height="320dp"
+        android:layout_marginTop="5dp"
+        android:scrollbars="vertical"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address"
-        tools:text="123, 123" />
+        tools:text="Description" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
