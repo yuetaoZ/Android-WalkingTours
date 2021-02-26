@@ -64,15 +64,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private FenceMgr fenceMgr;
     private Geocoder geocoder;
     private TextView addressText;
+    private boolean travelPathClicked = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //hideSystemUI();
-
-        fenceMgr = new FenceMgr(this);
 
         addressText = findViewById(R.id.currentAddress);
 
@@ -117,6 +114,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
 
+        fenceMgr = new FenceMgr(this, mMap);
+
         setupLocationListener();
     }
 
@@ -142,6 +141,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             fenceMgr.drawFences();
         } else {
             fenceMgr.eraseFences();
+        }
+    }
+
+    public void showTourPathClicked(View v) {
+        CheckBox cb = (CheckBox) v;
+
+        if (cb.isChecked()) {
+            fenceMgr.showPath();
+        } else {
+            fenceMgr.erasePath();
+        }
+    }
+
+    public void showTravelPathClicked(View v) {
+        CheckBox cb = (CheckBox) v;
+
+        if (cb.isChecked()) {
+            travelPathClicked = true;
+        } else {
+            travelPathClicked = false;
+        }
+    }
+
+    public void showAddressClicked(View v) {
+        CheckBox cb = (CheckBox) v;
+
+        if (cb.isChecked()) {
+            addressText.setTextColor(Color.WHITE);
+        } else {
+            addressText.setTextColor(Color.TRANSPARENT);
         }
     }
 
@@ -191,8 +220,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             llHistoryPolyline = mMap.addPolyline(polylineOptions);
             llHistoryPolyline.setEndCap(new RoundCap());
             llHistoryPolyline.setWidth(8);
-            llHistoryPolyline.setColor(Color.BLUE);
-
+            if (travelPathClicked) {
+                llHistoryPolyline.setColor(Color.GREEN);
+            } else {
+                llHistoryPolyline.setColor(Color.TRANSPARENT);
+            }
 
             float r = getRadius();
             if (r > 0) {
@@ -204,7 +236,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 MarkerOptions options = new MarkerOptions();
                 options.position(latLng);
                 options.icon(iconBitmap);
-                options.rotation(location.getBearing());
+                //options.rotation(location.getBearing());
 
                 if (carMarker != null) {
                     carMarker.remove();

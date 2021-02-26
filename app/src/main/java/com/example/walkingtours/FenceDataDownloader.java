@@ -23,9 +23,11 @@ class FenceDataDownloader implements Runnable {
     private static final String TAG = "FenceDataDownloader";
     private final Geocoder geocoder;
     private final FenceMgr fenceMgr;
-    private static final String FENCE_URL = "http://www.christopherhield.com/data/fences.json";
+    private final MapsActivity mapsActivity;
+    private static final String FENCE_URL = "http://www.christopherhield.com/data/WalkingTourContent.json";
 
     FenceDataDownloader(MapsActivity mapsActivity, FenceMgr fenceMgr) {
+        this.mapsActivity = mapsActivity;
         this.fenceMgr = fenceMgr;
         geocoder = new Geocoder(mapsActivity);
     }
@@ -39,22 +41,27 @@ class FenceDataDownloader implements Runnable {
         try {
             JSONObject jObj = new JSONObject(result);
             JSONArray jArr = jObj.getJSONArray("fences");
+
             for (int i = 0; i < jArr.length(); i++) {
                 JSONObject fObj = jArr.getJSONObject(i);
                 String id = fObj.getString("id");
                 String address = fObj.getString("address");
                 float rad = (float) fObj.getDouble("radius");
-                int type = fObj.getInt("type");
                 String color = fObj.getString("fenceColor");
+                String description = fObj.getString("description");
+                String image = fObj.getString("image");
 
-                LatLng ll = getLatLong(address);
-
-                if (ll != null) {
-                    FenceData fd = new FenceData(id, ll.latitude, ll.longitude, address, rad, type, color);
-                    fences.add(fd);
-                }
+                double latitude = fObj.getDouble("latitude");
+                double longitude = fObj.getDouble("longitude");
+                FenceData fd = new FenceData(id, latitude, longitude, address, rad, color, description, image);
+                fences.add(fd);
             }
-            fenceMgr.addFences(fences);
+            JSONArray jPath = jObj.getJSONArray("path");
+            String[] arrPath = new String[jPath.length()];
+            for(int i = 0; i < jPath.length(); i++)
+                arrPath[i] = jPath.getString(i);
+
+            fenceMgr.addFences(fences, arrPath);
         } catch (Exception e) {
             e.printStackTrace();
         }

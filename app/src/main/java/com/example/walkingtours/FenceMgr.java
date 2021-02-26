@@ -15,11 +15,15 @@ import com.google.android.gms.location.Geofence;
 import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.GeofencingRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.Dot;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PatternItem;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
+import com.google.android.gms.maps.model.RoundCap;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -34,9 +38,14 @@ class FenceMgr {
     private final ArrayList<Circle> circles = new ArrayList<>();
     private final List<PatternItem> pattern = Collections.singletonList(new Dot());
     private static final ArrayList<FenceData> fenceList = new ArrayList<>();
+    private static final ArrayList<LatLng> latLonPath = new ArrayList<>();
+    private GoogleMap mMap;
+    private PolylineOptions polylineOptions = new PolylineOptions();
+    private Polyline llPathPolyline;
 
-    FenceMgr(final MapsActivity mapsActivity) {
+    FenceMgr(final MapsActivity mapsActivity, GoogleMap mMap) {
         this.mapsActivity = mapsActivity;
+        this.mMap   = mMap;
         geofencingClient = LocationServices.getGeofencingClient(mapsActivity);
 
         geofencingClient.removeGeofences(getGeofencePendingIntent())
@@ -85,8 +94,8 @@ class FenceMgr {
         circles.add(c);
     }
 
-    void addFences(ArrayList<FenceData> fences) {
-
+    void addFences(ArrayList<FenceData> fences, String[] arrPath) {
+        savePath(arrPath);
         fenceList.clear();
         fenceList.addAll(fences);
 
@@ -97,7 +106,7 @@ class FenceMgr {
                             fd.getLat(),
                             fd.getLon(),
                             fd.getRadius())
-                    .setTransitionTypes(fd.getType())
+                    .setTransitionTypes(1)
                     .setExpirationDuration(Geofence.NEVER_EXPIRE) //Fence expires after N millis  -or- Geofence.NEVER_EXPIRE
                     .build();
 
@@ -122,6 +131,40 @@ class FenceMgr {
                     });
         }
         mapsActivity.runOnUiThread(this::drawFences);
+    }
+
+    public void savePath(String[] arrPath) {
+        latLonPath.clear();
+
+        for (int i = 0; i < arrPath.length; i++) {
+            String latLngStr = arrPath[i];
+            String[] parts = latLngStr.split(",");
+            String lng = parts[0];
+            String lat = parts[1];
+            LatLng latLng = new LatLng(Double.parseDouble(lat), Double.parseDouble(lng));
+            latLonPath.add(latLng);
+        }
+
+        for (LatLng ll : latLonPath) {
+            polylineOptions.add(ll);
+        }
+
+        mapsActivity.runOnUiThread(this::drawPath);
+    }
+
+    void drawPath() {
+        llPathPolyline = mMap.addPolyline(polylineOptions);
+        llPathPolyline.setEndCap(new RoundCap());
+        llPathPolyline.setWidth(8);
+        llPathPolyline.setColor(Color.YELLOW);
+    }
+
+    void showPath() {
+        llPathPolyline.setColor(Color.YELLOW);
+    }
+
+    void erasePath() {
+        llPathPolyline.setColor(Color.TRANSPARENT);
     }
 
     private PendingIntent getGeofencePendingIntent() {
