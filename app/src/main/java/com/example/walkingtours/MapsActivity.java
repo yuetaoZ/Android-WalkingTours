@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -64,21 +66,39 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Geocoder geocoder;
     private TextView addressText;
     private boolean travelPathClicked;
+    Typeface textFont;
 
     {
         travelPathClicked = true;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
         addressText = findViewById(R.id.currentAddress);
+        addressText.setTypeface(textFont);
+        addressText.setText(R.string.current_address);
+
+        setCheckBoxFont();
 
         checkLocationAccuracy();
 
         geocoder = new Geocoder(this);
+    }
+
+    private void setCheckBoxFont() {
+        textFont = Typeface.createFromAsset(getAssets(), "fonts/Acme-Regular.ttf");
+        CheckBox c1 = findViewById(R.id.checkBox);
+        CheckBox c2 = findViewById(R.id.checkBox2);
+        CheckBox c3 = findViewById(R.id.checkBox3);
+        CheckBox c4 = findViewById(R.id.checkBox4);
+        c1.setTypeface(textFont);
+        c2.setTypeface(textFont);
+        c3.setTypeface(textFont);
+        c4.setTypeface(textFont);
     }
 
     public void initMap() {

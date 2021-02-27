@@ -82,11 +82,12 @@
         android:id="@+id/checkBox4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/show_tour_path"
+        android:checked="true"
+        android:includeFontPadding="false"
         android:onClick="showTourPathClicked"
+        android:text="@string/show_tour_path"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:checked="true"
         app:layout_constraintStart_toStartOf="@+id/checkBox2"
         app:layout_constraintTop_toTopOf="@+id/checkBox3" />
 

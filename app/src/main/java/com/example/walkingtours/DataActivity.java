@@ -1,6 +1,7 @@
 package com.example.walkingtours;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
@@ -22,9 +23,13 @@ public class DataActivity extends AppCompatActivity {
         setContentView(R.layout.activity_data);
 
         ConstraintLayout layout = findViewById(R.id.layout);
+        Typeface textFont = Typeface.createFromAsset(getAssets(), "fonts/Acme-Regular.ttf");
         TextView nameText = findViewById(R.id.name);
+        nameText.setTypeface(textFont);
         TextView addressText = findViewById(R.id.address);
+        addressText.setTypeface(textFont);
         TextView descriptionText = findViewById(R.id.description);
+        descriptionText.setTypeface(textFont);
         descriptionText.setMovementMethod(new ScrollingMovementMethod());
         ImageView locationImage = findViewById(R.id.locationImage);
 
