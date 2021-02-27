@@ -78,6 +78,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
 
+        textFont = Typeface.createFromAsset(getAssets(), "fonts/Acme-Regular.ttf");
         addressText = findViewById(R.id.currentAddress);
         addressText.setTypeface(textFont);
         addressText.setText(R.string.current_address);
@@ -90,7 +91,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void setCheckBoxFont() {
-        textFont = Typeface.createFromAsset(getAssets(), "fonts/Acme-Regular.ttf");
         CheckBox c1 = findViewById(R.id.checkBox);
         CheckBox c2 = findViewById(R.id.checkBox2);
         CheckBox c3 = findViewById(R.id.checkBox3);
