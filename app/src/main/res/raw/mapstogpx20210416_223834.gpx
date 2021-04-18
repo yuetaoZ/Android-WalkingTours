@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="mapstogpx.com" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    <!--desc>Map data ©2021 Google</desc-->
+    <!--copyright author="Google Inc">
+    	<year>2021</year>
+    	<license>https://developers.google.com/maps/terms</license>
+    </copyright-->
+    <!--url>https://www.google.co.uk/maps/dir/Roosevelt University, South Michigan Avenue, Chicago, IL/Willis Tower, South Wacker Drive, Chicago, IL/@41.8766742,-87.634554,16z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x880e2ca21507764f:0x44cc0732016145b4!2m2!1d-87.6251169!2d41.8763427!1m5!1m1!1s0x880e2cbee269fbbb:0x10f6dce5eb88c7d!2m2!1d-87.6359149!2d41.8788764!3e0?hl=en</url-->
+    <time>2021-04-16T17:38:33Z</time>
+  </metadata>
+  <wpt lat="41.8763427" lon="-87.6251169">
+    <name>Roosevelt University</name>
+    <desc>Roosevelt University, 430 S Michigan Ave, Chicago, IL 60605, United States</desc>
+  </wpt>
+  <wpt lat="41.8788764" lon="-87.6359149">
+    <name>Willis Tower</name>
+    <desc>Willis Tower, 233 S Wacker Dr, Chicago, IL 60606, United States</desc>
+  </wpt>
+<trk>
+  <name>Roosevelt University to Willis Tower</name>
+  <number>1</number>
+  <trkseg>
+  <trkpt lat="41.8765903" lon="-87.6253123">
+    <name>TP001</name>
+  </trkpt>
+  <trkpt lat="41.87659" lon="-87.62566">
+    <name>TP002</name>
+  </trkpt>
+  <trkpt lat="41.87659" lon="-87.62567">
+    <name>TP003</name>
+  </trkpt>
+  <trkpt lat="41.87659" lon="-87.62568">
+    <name>TP004</name>
+  </trkpt>
+  <trkpt lat="41.8766" lon="-87.62569">
+    <name>TP005</name>
+  </trkpt>
+  <trkpt lat="41.8766" lon="-87.6257">
+    <name>TP006</name>
+  </trkpt>
+  <trkpt lat="41.8766" lon="-87.62571">
+    <name>TP007</name>
+  </trkpt>
+  <trkpt lat="41.8766" lon="-87.62572">
+    <name>TP008</name>
+  </trkpt>
+  <trkpt lat="41.87661" lon="-87.62573">
+    <name>TP009</name>
+  </trkpt>
+  <trkpt lat="41.87662" lon="-87.62573">
+    <name>TP010</name>
+  </trkpt>
+  <trkpt lat="41.87662" lon="-87.62574">
+    <name>TP011</name>
+  </trkpt>
+  <trkpt lat="41.87663" lon="-87.62574">
+    <name>TP012</name>
+  </trkpt>
+  <trkpt lat="41.87674" lon="-87.62574">
+    <name>TP013</name>
+  </trkpt>
+  <trkpt lat="41.87696" lon="-87.62575">
+    <name>TP014</name>
+  </trkpt>
+  <trkpt lat="41.8769645" lon="-87.6257507">
+    <name>TP015</name>
+  </trkpt>
+  <trkpt lat="41.87696" lon="-87.62604">
+    <name>TP016</name>
+  </trkpt>
+  <trkpt lat="41.87695" lon="-87.62634">
+    <name>TP017</name>
+  </trkpt>
+  <trkpt lat="41.87694" lon="-87.62691">
+    <name>TP018</name>
+  </trkpt>
+  <trkpt lat="41.87693" lon="-87.62759">
+    <name>TP019</name>
+  </trkpt>
+  <trkpt lat="41.87693" lon="-87.62771">
+    <name>TP020</name>
+  </trkpt>
+  <trkpt lat="41.87692" lon="-87.62822">
+    <name>TP021</name>
+  </trkpt>
+  <trkpt lat="41.87691" lon="-87.62872">
+    <name>TP022</name>
+  </trkpt>
+  <trkpt lat="41.87691" lon="-87.62927">
+    <name>TP023</name>
+  </trkpt>
+  <trkpt lat="41.8769" lon="-87.62974">
+    <name>TP024</name>
+  </trkpt>
+  <trkpt lat="41.87689" lon="-87.63042">
+    <name>TP025</name>
+  </trkpt>
+  <trkpt lat="41.87689" lon="-87.63073">
+    <name>TP026</name>
+  </trkpt>
+  <trkpt lat="41.87688" lon="-87.63097">
+    <name>TP027</name>
+  </trkpt>
+  <trkpt lat="41.87688" lon="-87.63155">
+    <name>TP028</name>
+  </trkpt>
+  <trkpt lat="41.87688" lon="-87.63176">
+    <name>TP029</name>
+  </trkpt>
+  <trkpt lat="41.87687" lon="-87.63202">
+    <name>TP030</name>
+  </trkpt>
+  <trkpt lat="41.87687" lon="-87.63226">
+    <name>TP031</name>
+  </trkpt>
+  <trkpt lat="41.87686" lon="-87.63275">
+    <name>TP032</name>
+  </trkpt>
+  <trkpt lat="41.87686" lon="-87.6331">
+    <name>TP033</name>
+  </trkpt>
+  <trkpt lat="41.87684" lon="-87.63371">
+    <name>TP034</name>
+  </trkpt>
+  <trkpt lat="41.87684" lon="-87.63406">
+    <name>TP035</name>
+  </trkpt>
+  <trkpt lat="41.87683" lon="-87.63478">
+    <name>TP036</name>
+  </trkpt>
+  <trkpt lat="41.87683" lon="-87.63502">
+    <name>TP037</name>
+  </trkpt>
+  <trkpt lat="41.87683" lon="-87.63518">
+    <name>TP038</name>
+  </trkpt>
+  <trkpt lat="41.8768303" lon="-87.6351807">
+    <name>TP039</name>
+  </trkpt>
+  <trkpt lat="41.87707" lon="-87.63519">
+    <name>TP040</name>
+  </trkpt>
+  <trkpt lat="41.87725" lon="-87.63519">
+    <name>TP041</name>
+  </trkpt>
+  <trkpt lat="41.87743" lon="-87.6352">
+    <name>TP042</name>
+  </trkpt>
+  <trkpt lat="41.87757" lon="-87.63521">
+    <name>TP043</name>
+  </trkpt>
+  <trkpt lat="41.87775" lon="-87.63522">
+    <name>TP044</name>
+  </trkpt>
+  <trkpt lat="41.87793" lon="-87.63522">
+    <name>TP045</name>
+  </trkpt>
+  <trkpt lat="41.87811" lon="-87.63523">
+    <name>TP046</name>
+  </trkpt>
+  <trkpt lat="41.8781139" lon="-87.6352337">
+    <name>TP047</name>
+  </trkpt>
+  <trkpt lat="41.87817" lon="-87.63524">
+    <name>TP048</name>
+  </trkpt>
+  <trkpt lat="41.87835" lon="-87.63524">
+    <name>TP049</name>
+  </trkpt>
+  <trkpt lat="41.87853" lon="-87.63524">
+    <name>TP050</name>
+  </trkpt>
+  <trkpt lat="41.87871" lon="-87.63525">
+    <name>TP051</name>
+  </trkpt>
+  <trkpt lat="41.87881" lon="-87.63525">
+    <name>TP052</name>
+  </trkpt>
+  <trkpt lat="41.87888" lon="-87.63525">
+    <name>TP053</name>
+  </trkpt>
+  <trkpt lat="41.8788823" lon="-87.6352513">
+    <name>TP054</name>
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>
